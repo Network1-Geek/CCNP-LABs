@@ -1,0 +1,16 @@
+ASW-1#sh
+ASW-1#show run
+ASW-1#show running-config 
+Building configuration... 
+     
+interface Ethernet0/0
+ switchport access vlan 10
+ switchport mode access
+!         
+interface Ethernet0/1
+!         
+interface Ethernet0/2
+ switchport access vlan 20
+ switchport mode access
+   
+end       
