@@ -1,0 +1,170 @@
+DST-2#show running-config  br
+DST-2#show running-config  brief 
+Building configuration...
+
+Current configuration : 2486 bytes
+!
+! Last configuration change at 16:31:12 UTC Mon Mar 31 2025
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname DST-2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!         
+!         
+!         
+!         
+ip cef    
+no ipv6 cef
+!         
+!         
+!         
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 10,20 priority 28672
+spanning-tree vlan 30,40 priority 24576
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+interface Port-channel12
+!         
+interface Ethernet0/0
+ channel-group 12 mode passive
+!         
+interface Ethernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!         
+interface Ethernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!         
+interface Ethernet0/3
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!         
+interface Ethernet1/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!         
+interface Ethernet1/1
+ channel-group 12 mode passive
+!         
+interface Ethernet1/2
+ no switchport
+ ip address 192.168.1.22 255.255.255.252
+!         
+interface Ethernet1/3
+ no switchport
+ ip address 192.168.1.6 255.255.255.252
+!         
+interface Ethernet2/0
+!         
+interface Ethernet2/1
+!         
+interface Ethernet2/2
+!         
+interface Ethernet2/3
+!         
+interface Ethernet3/0
+!         
+interface Ethernet3/1
+!         
+interface Ethernet3/2
+!         
+interface Ethernet3/3
+!         
+interface Ethernet4/0
+!         
+interface Ethernet4/1
+!         
+interface Ethernet4/2
+!         
+interface Ethernet4/3
+!         
+interface Ethernet5/0
+!         
+interface Ethernet5/1
+!         
+interface Ethernet5/2
+!         
+interface Ethernet5/3
+!         
+interface Vlan10
+ ip address 192.168.10.252 255.255.255.0
+ standby 10 ip 192.168.10.254
+ standby 10 preempt
+ standby 10 authentication md5 key-string cisco123
+!         
+interface Vlan20
+ ip address 192.168.20.252 255.255.255.0
+ standby 20 ip 192.168.20.254
+ standby 20 preempt
+ standby 20 authentication md5 key-string cisco123
+!         
+interface Vlan30
+ ip address 192.168.30.252 255.255.255.0
+ standby 30 ip 192.168.30.254
+ standby 30 priority 102
+ standby 30 preempt
+!         
+interface Vlan40
+ ip address 192.168.40.252 255.255.255.0
+ standby 40 ip 192.168.40.254
+ standby 40 priority 102
+ standby 40 preempt
+!         
+router ospf 1
+ router-id 0.0.0.2
+ network 192.168.0.0 0.0.255.255 area 0
+!         
+ip forward-protocol nd
+!         
+ip http server
+ip http secure-server
+!         
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!         
+!         
+!         
+!         
+!         
+control-plane
+!         
+!         
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login    
+!         
+!         
+!         
+end    
