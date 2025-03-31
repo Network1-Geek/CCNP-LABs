@@ -1,0 +1,15 @@
+ASW-3#show running-config 
+Building configuration...
+    
+!         
+interface Ethernet0/0
+ switchport access vlan 30
+ switchport mode access
+!         
+interface Ethernet0/1
+!         
+interface Ethernet0/2
+!         
+interface Ethernet0/3
+ switchport access vlan 40
+ switchport mode access
